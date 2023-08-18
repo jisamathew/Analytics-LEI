@@ -13,6 +13,7 @@ import {Location} from '@angular/common';
 import { LoginfoComponent } from '../loginfo/loginfo.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ApiService } from 'src/app/service/api.service';
+import { HttpClient } from '@angular/common/http';
 
 declare var Buffer;
 @Component({
@@ -54,7 +55,9 @@ export class LeiIssueComponent implements OnInit {
     private cd: ChangeDetectorRef,
     public location:Location,
     private route: ActivatedRoute,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private httpClient:HttpClient
+
     ) { 
     console.warn("calling order constra");
     this.web3.checkAndInstantiateWeb3()
@@ -89,6 +92,19 @@ export class LeiIssueComponent implements OnInit {
                            this.ipfsConverted2 = result;
                       console.log(this.ipfsConverted2 );
                        this.userinfo = user[0];
+                          this.loaderService.showLoader('bankLoader');
+                       let userWallet = this.ipfsConverted2.wallet;
+                       this.apiService.getDBAPI(userWallet).subscribe((result:any) => {
+                         console.log('lei');
+                        console.log(result);
+                        // this.totalProduct.push(result.leiIssue);
+                        this.dataSource = new MatTableDataSource(result);
+                        this.dataSource.sort = this.sort;
+                        this.dataSource.paginator = this.paginator;
+                        this.cd.detectChanges();
+                        this.loaderService.hideLoader('bankLoader');
+                      });
+                  
                     })
  
                     }
