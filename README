@@ -1,0 +1,14 @@
+Tradetrip Code - Data Analytics Front End App
+
+Only 1 user - BANK
+
+They have provision to register
+
+after registration they are able to choose analytics from sidemenu
+
+2 options - kyc and malicious transactions
+
+Hosted in firbase-(Hosting Angular App documentation available in kottackal corporate folder)
+
+used ipfs web3 storage for using ipfs after hosting
+contracts are deployed in Sepolia Network

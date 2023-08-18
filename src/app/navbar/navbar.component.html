@@ -1,0 +1,60 @@
+     <!-- <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>TradeTrip</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon" (click)="goToSignup('signup')">
+        <mat-icon>perm_identity</mat-icon>
+      </button>
+    </mat-toolbar> -->
+
+    <!-- For Consignee/Landing -->
+<mat-toolbar color="primary" style="min-height: 55px !important; height: 55px !important;" class="mat-elevation-z6" *ngIf="!SignedIn||consigneeLoggedIn" >
+  <button mat-icon-button  *ngIf="SignedIn" class="example-icon"  aria-label="Example icon-button with menu icon">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <img src="../assets/images/logo.png" style="width:150px;height:50px">
+
+  <span class="example-spacer"></span>
+  <button mat-button (click)="openDialog()" *ngIf="!SignedIn">SIGNUP
+  <span class="material-icons">
+app_registration
+</span>
+  </button>
+<!-- For Consignee -->
+<div class="example-button-container" *ngIf="consigneeLoggedIn">
+  <button mat-mini-fab color="primary" aria-label="Example icon button with a filter list icon">
+    <mat-icon>user</mat-icon>
+  </button>
+</div>
+<h1 *ngIf="consigneeLoggedIn">Consignee Name</h1>
+<button *ngIf="consigneeLoggedIn" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" *ngIf="consigneeLoggedIn">
+  <button mat-menu-item>
+    <mat-icon matBadge="15">shopping_cart</mat-icon>
+    <span>My Cart
+    </span>
+  </button>
+  <button mat-menu-item disabled>
+    <mat-icon>voicemail</mat-icon>
+    <span>Check voice mail</span>
+  </button>
+  <button mat-menu-item>
+    <mat-icon>notifications_off</mat-icon>
+    <span>Disable alerts</span>
+  </button>
+</mat-menu>
+
+</mat-toolbar>
+<!-- For Seller -->
+<mat-toolbar *ngIf="SignedIn && sellerSignedIn">
+
+  <i class="material-icons">dashboard</i>
+  SellerDashboard
+</mat-toolbar>

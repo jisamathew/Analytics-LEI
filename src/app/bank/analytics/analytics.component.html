@@ -1,0 +1,238 @@
+<div class="loaders">
+
+    <div class="bankLoader">
+      <app-loader [id]="'bankLoader'"></app-loader>
+    </div>
+  </div> 
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav
+      #sidenav
+      class="example-sidenav"
+      disableClose="true"
+      opened="true"
+      mode="side"
+    >
+      <mat-nav-list>
+        <mat-list-item>
+          <mat-icon
+            class="navicon"
+            (click)="isExpanded = !isExpanded"
+            mat-list-icon
+            matTooltip="Expand"
+          >
+            menu
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded"></h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon class="navicon" mat-list-icon (click)="redirectDashboard()" matTooltip="Dashboard">
+            dashboard
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Dashboard</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon
+            class="navicon"
+            matTooltip="Transaction"
+            (click)="redirectDashboard()"
+            mat-list-icon
+          >
+            swap_horiz
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Transaction</h4>
+        </mat-list-item>
+  
+        <!-- <mat-list-item>
+          <mat-icon class="navicon" mat-list-icon matTooltip="Balance">
+            paid
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Balance</h4>
+        </mat-list-item> -->
+        <mat-list-item>
+          <mat-icon class="navicon active" mat-list-icon matTooltip="Analytics">analytics</mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Analytics</h4>
+        </mat-list-item>
+        <!-- <mat-list-item>
+          <mat-icon class="navicon" mat-list-icon matTooltip="Invoice">
+            receipt_long
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Invoice</h4>
+        </mat-list-item> -->
+       
+        <mat-list-item>
+          <mat-icon class="navicon"mat-list-icon matTooltip="Report" routerLink="/bank/report">summarize</mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Report</h4>
+        </mat-list-item>
+  
+      </mat-nav-list>
+    </mat-sidenav>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a (click)="redirectDashboard()" style="color: #007bff;
+          background-color: transparent;cursor: pointer;">Home</a></li>
+        <li class="breadcrumb-item"  aria-current="page">Analytics</li>
+
+      </ol>
+
+    </nav>
+    <div class="example-sidenav-content">
+      <!-- <mat-card class="example-card"> -->
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row headContent">
+            <div class="col-lg-8 col-md-8 col-sm-8">
+              <h2>Analytics</h2>
+            </div>
+  
+            <div class="col col-md-auto">
+              <!-- <img
+                class="img-fluid profileimg"
+                src="../../../assets/images/bank.png"
+                alt="Avatar"
+                mat-mini-fab
+                style="width: 60px; height: 60px; padding-bottom: 5px;"
+              /> -->
+            </div>
+  
+            <div class="col col-lg-2">
+              <!-- <h6>{{ bankName }}</h6>
+              <h6>{{ bankMail }}</h6> -->
+  
+              
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <mat-card>
+                <mat-card-header>
+                  <h3>KYC - Issue</h3>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <mat-icon class="cardicon1 img-fluid" color="primary" >
+                        <span class="material-icons-outlined">
+                          insights
+                          </span>
+                      </mat-icon>
+                    </div>
+                    <div class="col-lg-6 ">
+                      <button
+                      class="viewbtn"
+                        (click)="viewLEIIssue()"
+                        mat-raised-button
+                        fill="outline"
+                        slot="end"
+                      >
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </mat-card-content>
+                <mat-card-footer>
+                  Click to view KYC data for missing and fraudulant LEI's
+                </mat-card-footer>
+              </mat-card>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <mat-card>
+                <mat-card-header>
+                  <h3>Malicious Transactions</h3>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <mat-icon class="cardicon1" >
+                        swap_horiz
+                     
+                      </mat-icon>
+                    </div>
+                    <div class="col-lg-6">
+                      <button
+                        class="viewbtn"
+                        mat-raised-button
+                        fill="outline"
+                        slot="end"
+                        (click)="viewFraud()"
+                      >
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </mat-card-content>
+                <mat-card-footer>
+                  Click to view transactions with malicious data
+                </mat-card-footer>
+              </mat-card>
+            </div>
+  
+            <!-- <div class="col-lg-6 col-md-6 col-sm-12">
+              <mat-card>
+                <mat-card-header>
+                  <h3>Market Place</h3>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                      <mat-icon class="cardicon1" color="primary" style="margin-left: 20px;">
+                        swap_horiz
+                      </mat-icon>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                      <button
+                      class="viewbtn"
+                        (click)="viewBidsTable()"
+                        mat-raised-button
+                        fill="outline"
+                        slot="end"
+                      >
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </mat-card-content>
+                <mat-card-footer>
+                  Click to go to MarketPlace
+                </mat-card-footer>
+              </mat-card>
+            </div>
+  
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <mat-card>
+                <mat-card-header>
+                  <h3>Analytics</h3>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                      <mat-icon class="cardicon1" color="primary" style="margin-left: 20px;">
+                        swap_horiz
+                      </mat-icon>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                      <button
+                      class="viewbtn"
+                        (click)="getDBAPI()"
+                        mat-raised-button
+                        fill="outline"
+                        slot="end"
+                      >
+                        View
+                      </button>
+                    </div>
+                  </div>
+                </mat-card-content>
+                <mat-card-footer>
+                  Click to go to Analytics Application
+                </mat-card-footer>
+              </mat-card>
+            </div> -->
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-container>
+  

@@ -1,0 +1,63 @@
+.example-card {
+    max-width: 500px;
+  }
+  
+  /* .example-header-image {
+    background-image: url('../../assets/images/logot.png');
+
+    background-size: cover;
+  } */
+  
+
+  .center-content{
+    text-align: -webkit-center;
+  }
+
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  
+  td {
+    padding-right: 8px;
+  }
+  
+
+  .mat-button{
+      color: white;
+      background-color: #3F51B5;
+  }
+
+
+
+
+
+
+  .full-width{
+    width: 100%;
+}
+
+.top-padding{
+    padding-top: 3px;
+}
+
+.margin-left mat-radio-button:not(:first-child){
+    margin-left:10px;
+}
+
+.form-container{
+    margin: 100px;
+}
+
+.invalid{
+    color:#f44336;
+}
+.small-font{
+    font-size: 12px;
+}

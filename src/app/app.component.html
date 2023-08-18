@@ -1,0 +1,56 @@
+ <mat-toolbar color="primary" style="min-height: 55px !important; height: 55px !important;" class="mat-elevation-z6" *ngIf="!SignedIn||consigneeLoggedIn" >
+    <button mat-icon-button  *ngIf="SignedIn" class="example-icon"  aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <img src="../assets/images/logo.png" style="width:150px;height:50px">
+    <span class="example-spacer"></span>
+    <!-- <button mat-button (click)="openDialog()" *ngIf="!SignedIn">SIGNUP
+    <span class="material-icons">
+  app_registration
+  </span>
+    </button> -->
+
+    <!-- <button *ngIf="!SignedIn"> -->
+      <a [routerLink]="['user/register']" routerLinkActive="active"><span class="material-icons"  *ngIf="!SignedIn" >app_registration</span></a>
+
+    <!-- </button> -->
+
+
+
+
+  <div class="example-button-container" *ngIf="consigneeLoggedIn">
+    <!-- <button mat-mini-fab aria-label="Example icon button with a filter list icon"> -->
+
+      <img class="img-fluid profileimg" src="../assets/images/avatar.png" alt="Avatar" mat-mini-fab style="width:30px;height:30px;border-radius: 50%;">
+
+    <!-- </button> -->
+
+  </div>
+  <h1 *ngIf="consigneeLoggedIn"> {{ consigneeName }}</h1>
+  </mat-toolbar>
+
+
+  <mat-toolbar class="sellertoolbar" *ngIf="SignedIn && sellerSignedIn">
+    <i class="material-icons">dashboard</i>
+     Seller Dashboard
+    <span class="example-spacer"></span>
+    <div class="example-button-container">
+    
+          <img class="img-fluid profileimg" src="../assets/images/wartsila.png" alt="Avatar" mat-mini-fab style="width:30px;height:30px;border-radius: 50%;">
+    
+    
+      </div>
+    <h1> {{ sellerName }}</h1>
+
+  </mat-toolbar>
+
+  <!-- <landing-page *ngIf="!SignedIn" ></landing-page>
+  <router-outlet *ngIf="SignedIn"  class="mainbody">
+  </router-outlet>
+   -->
+
+   <!-- <app-toolbar></app-toolbar> -->
+
+<div>
+  <router-outlet></router-outlet>
+</div>

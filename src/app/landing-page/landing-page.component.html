@@ -1,0 +1,24 @@
+
+  <mat-sidenav-container class="example-container"  >
+    <mat-sidenav #sidenav class="example-sidenav" mode="side">
+      <p>Auto-resizing sidenav</p>
+      <button mat-raised-button>
+        Toggle extra text
+      </button>
+    </mat-sidenav> 
+
+      <mat-card class="example-card">
+        <mat-card-title>
+          <img src="../../assets/images/logo.png">
+          <p>TradeTrip is a crossborder platform which digitises <br>
+            and automates trade while reducing transaction costs and paper work</p>
+            <!-- <p>From Parent {{name}}</p> -->
+          <!-- <button mat-raised-button color="primary" (click)="openSList('signup')">SIGN UP</button>  -->
+          <a mat-raised-button color="primary" [routerLink]="[ 'user/register' ]" routerLinkActive="active">SIGN UP</a>
+
+        </mat-card-title>
+      </mat-card>
+    </mat-sidenav-container>
+
+
+  

@@ -1,0 +1,59 @@
+
+<!-- Initial Page Loader -->
+
+<div *ngIf="show" class="preloader" [ngClass]="{global: id === 'startingLoader'}">
+    <div class="loader"></div>
+</div>
+<div *ngIf="shipperShow" class="preloader3" [ngClass]="{global: id === 'shipperLoader'}">
+    <div class="loader"></div>
+</div>
+
+<div *ngIf="carrierShow" class="preloader4" [ngClass]="{global: id === 'carrierLoader'}">
+    <div class="loader"></div>
+</div>
+<div *ngIf="portShow" class="preloader5" [ngClass]="{global: id === 'portLoader'}">
+    <div class="loader"></div>
+</div>
+<div *ngIf="consigneeShow" class="preloader1" [ngClass]="{global: id === 'consigneeLoader'}">
+    <div class="loader"></div>
+</div>
+<div *ngIf="bankShow" class="preloader2" [ngClass]="{global: id === 'bankLoader'}">
+    <div class="loader"></div>
+</div>
+
+
+
+
+
+
+<!-- -->
+<!-- <div class="preloader">
+    <div class="loader"></div>
+  </div> -->
+<!-- <div *ngIf="show" class="preloader"
+  [ngClass]="{global: id === 'global'}">
+<div class="loader"></div>
+
+</div> -->
+<!-- Loader 10 sample loader not showing properly -->
+<!-- <div *ngIf="show" class="preloader" [ngClass]="{global: id === 'startingLoader'}">
+        <div class="container">
+            <br/>
+            <br/>
+            <div class="row">
+                <div class="col-md-12">
+    
+                    <div class="loader10">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+    
+                </div>
+            </div>
+            <br/>
+            <br/>
+        </div>
+    
+    </div> -->

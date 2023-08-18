@@ -1,0 +1,144 @@
+
+<div class="loaders">
+
+    <div class="bankLoader">
+      <app-loader [id]="'bankLoader'"></app-loader>
+    </div>
+  </div> 
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav
+      #sidenav
+      class="example-sidenav"
+      disableClose="true"
+      opened="true"
+      mode="side"
+    >
+      <mat-nav-list>
+        <mat-list-item>
+          <mat-icon
+            class="navicon"
+            (click)="isExpanded = !isExpanded"
+            mat-list-icon
+            matTooltip="Expand"
+          >
+            menu
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded"></h4>
+        </mat-list-item>
+        <mat-list-item>
+          <!-- <mat-icon class="navicon active" mat-list-icon matTooltip="Dashboard"  (click)="redirectDashboard()">
+            dashboard
+          </mat-icon> -->
+          <h4 mat-line *ngIf="isExpanded">Dashboard</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <!-- <mat-icon
+            class="navicon"
+            matTooltip="Transaction History"  (click)="redirectDashboard()"
+            mat-list-icon
+          >
+            swap_horiz
+          </mat-icon> -->
+          <h4 mat-line *ngIf="isExpanded">Transaction</h4>
+        </mat-list-item>
+  
+        <mat-list-item>
+          <mat-icon class="navicon" mat-list-icon matTooltip="Balance">
+            paid
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Balance</h4>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon class="navicon" mat-list-icon matTooltip="Analytics">analytics</mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Analytics</h4>
+        </mat-list-item>
+        <!-- <mat-list-item>
+          <mat-icon class="navicon" mat-list-icon matTooltip="Invoice">
+            receipt_long
+          </mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Invoice</h4>
+        </mat-list-item> -->
+       
+        <mat-list-item>
+          <mat-icon class="navicon"mat-list-icon matTooltip="Report" routerLink="/bank/report">summarize</mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Report</h4>
+        </mat-list-item>
+  
+  
+        <mat-list-item>
+          <mat-icon class="navicon"mat-list-icon matTooltip="Roles" routerLink="/roles">summarize</mat-icon>
+          <h4 mat-line *ngIf="isExpanded">Roles</h4>
+        </mat-list-item>
+  
+  
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <div class="example-sidenav-content">
+      <!-- <mat-card class="example-card"> -->
+      <div class="main-content">
+        <div class="container-fluid">
+          <div class="row headContent">
+            <div class="col-lg-8 col-md-8 col-sm-8">
+              <h2>Bank Dashboard</h2>
+            </div>
+  
+            <div class="col col-md-auto">
+              <img
+                class="img-fluid profileimg"
+                src="../../../assets/images/bank.png"
+                alt="Avatar"
+                mat-mini-fab
+                style="width: 60px; height: 60px; padding-bottom: 5px;"
+              />
+            </div>
+  
+            <div class="col col-lg-2">
+              <!-- <h6>{{ bankName }}</h6>
+              <h6>{{ bankMail }}</h6> -->
+  
+              <!-- <h6>{{ userName }}</h6> -->
+            </div>
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <mat-card>
+                <mat-card-header>
+                  <h3>Roles</h3>
+                </mat-card-header>
+                <mat-card-content>
+                  <div class="row">
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                      <mat-icon class="cardicon1" color="primary" style="margin-left: 20px;">
+                        account_balance
+                      </mat-icon>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12">
+                        <section class="example-section" [formGroup]="roles">
+                            <h4>Select Functionalities:</h4>
+                            <p><mat-checkbox formControlName="Marketplace">Marketplace</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="KYC">KYC</mat-checkbox></p>
+                            <p><mat-checkbox formControlName="Analytics">Analytics</mat-checkbox></p>
+                          </section>
+                          <!-- <button class="btn btn-primary" type="submit"> Submit </button> -->
+      <button (click)="saveForm()" *ngIf="!rolesExists" mat-raised-button color="primary">Save</button>
+      <button (click)="saveForm()" *ngIf="rolesExists" mat-raised-button color="primary">Update</button>
+
+                    </div>
+                  </div>
+                </mat-card-content>
+                <mat-card-footer>
+                    <!-- <section class="example-section" [formGroup]="roles">
+                        <h4>You chose:</h4>
+                        {{roles.value | json}}
+                      </section> -->
+                </mat-card-footer>
+              </mat-card>
+            </div>
+         
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-sidenav-container>

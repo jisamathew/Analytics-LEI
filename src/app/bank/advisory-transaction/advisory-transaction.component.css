@@ -1,0 +1,119 @@
+
+mat-sidenav{
+    /* background-color:dodgerblue */
+  background:goldenrod;
+
+  }
+  .headContent{
+    padding-top: 10px;
+  }
+  mat-card{
+      margin-bottom: 30px;
+  }
+  .navicon{
+  color: white;
+  }
+  .example-container {
+    display: block;
+    overflow: auto;
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    }
+
+  .example-sidenav-content {
+    /* display: flex; */
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+      }
+
+  .example-sidenav {
+    padding: 20px;
+  }
+
+  .demo-panel {
+    width: 100%;
+    height: 90%;
+    margin: 10px 0px;
+  }
+  .vl {
+    border-left: 1px solid gray;
+    height: 500px;
+  }
+  table {
+    width: 100%;
+  }
+
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+
+  td, th {
+    width: 25%;/*  */
+  }
+  th{
+    /* background: mediumslateblue; */
+    background:goldenrod;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+  }
+  .profileimg {
+    border-radius: 50%;
+  }
+
+  .chartdiv{
+    width:100%;
+    height:250px;
+  }
+  .card{
+    background-color: whitesmoke;
+  }
+  .subnote{
+    font-size: 10px;
+    color: gray;
+  }
+
+  .sideicon{
+    padding: 10px;
+    margin: 10px;
+    border:"1px solid";
+    border-radius: 10%;
+    background-color: grey;
+  }
+  .active{
+    background-color: cornflowerblue;
+    border-radius: 50%;
+  }
+  .center{
+      justify-content: center;
+  }
+  .cardicon1{
+     font-size: 100px;
+     color:green;
+  }
+  .cardicon2{
+    font-size: 100px;
+    color:yellowgreen;
+ }
+ table{
+  width: 100%;
+ }
+ 
+ .mat-column-id {
+   word-wrap: break-word !important;
+   white-space: unset !important;
+   flex: 0 0 28% !important;
+   width: 8% !important;
+   overflow-wrap: break-word;
+   word-wrap: break-word;
+ 
+   word-break: break-word;
+ 
+   -ms-hyphens: auto;
+   -moz-hyphens: auto;
+   -webkit-hyphens: auto;
+   hyphens: auto;
+ }

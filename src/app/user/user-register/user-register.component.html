@@ -1,0 +1,148 @@
+<form [formGroup]="registerForm"  class="form-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Stake Holder Registration</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Select User Role</mat-label>
+            <mat-select formControlName="userRole" (selectionChange)="onSelection($event)">
+              <mat-option value="Consignee">Consignee</mat-option>
+              <mat-option value="Seller">Seller</mat-option>
+              <mat-option value="ShippingAgency">Shipper</mat-option>
+              <mat-option value="Carrier">Carrier</mat-option>
+              <mat-option value="PortAuthority">Port Authority</mat-option>
+              <mat-option value="Bank">Bank</mat-option>
+            </mat-select>
+            <mat-hint style="color: red;" *ngIf="registerForm.get('userRole').touched && registerForm.get('userRole').errors?.required">Role is required</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+
+          <mat-form-field class="full-width">
+            <input formControlName="leiName" matInput (keyup)="getCompanyInfo($event.target.value)" placeholder="Search Company">
+           </mat-form-field>
+  </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="lei" matInput placeholder="LEI" value={{lei}} disabled>
+          </mat-form-field>
+        </div>
+      
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="companyName" matInput placeholder="Legal Name" value={{legalName}}>
+            <!-- <mat-hint style="color: red;" *ngIf="registerForm.get('companyName').touched && registerForm.get('companyName').errors?.required">Company Name is required</mat-hint> -->
+          </mat-form-field>
+        </div>
+
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="firstName" matInput placeholder="First name">
+            <mat-hint style="color: red;" *ngIf="registerForm.get('firstName').touched && registerForm.get('firstName').errors?.required">First Name is required</mat-hint>
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="lastName" matInput placeholder="Last name">
+            <mat-hint style="color: red;" *ngIf="registerForm.get('lastName').touched && registerForm.get('lastName').errors?.required">Last Name is required</mat-hint>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="wallet" matInput placeholder="Wallet" value={{accountNumber}} disabled >
+            <mat-hint style="color: red;" *ngIf="registerForm.get('wallet').touched && registerForm.get('wallet').errors?.required">Wallet is required</mat-hint>
+
+          </mat-form-field>
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="email" matInput placeholder="Email">
+            <mat-hint style="color: red;" *ngIf="registerForm.get('email').touched && registerForm.get('email').errors?.required">Email is required</mat-hint>
+
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        
+
+
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="alias" matInput placeholder="Company Alias">
+            <mat-hint style="color: red;" *ngIf="registerForm.get('alias').touched && registerForm.get('alias').errors?.required">Alias is required</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <!-- <div class="col-md-6" *ngIf=" selectedRole === 'Consignee' || selectedRole === 'Seller'"> -->
+          <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <mat-label>Select Bank</mat-label>
+            <!-- <mat-select formControlName="userBank" (selectionchange)="onChangeBank($event)"> -->
+              <mat-select formControlName="userBank" [disabled]="userChange === 'ShippingAgency' ||userChange === 'Carrier' ||userChange === 'PortAuthority' ||userChange === 'Bank'">
+              <!-- <mat-option *ngFor="let bank of bankList" value={{bank}}>
+                {{bank}}
+              </mat-option> -->
+              <mat-option *ngFor="let bank of bankList" value={{bank}}>
+                {{ bank }}
+              </mat-option>
+            </mat-select>
+            <!-- <mat-hint style="color: red;" *ngIf="registerForm.get('userBank').touched && registerForm.get('userBank').errors?.required">Role is required</mat-hint> -->
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="city" matInput placeholder="City" value={{orgcity}}>
+            <!-- <mat-hint style="color: red;" *ngIf="registerForm.get('city').touched && registerForm.get('city').errors?.required">City is required</mat-hint> -->
+          </mat-form-field>
+         
+        </div>
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="state" matInput placeholder="Country" value={{orgcountry}}>
+            <!-- <mat-hint style="color: red;" *ngIf="registerForm.get('state').touched && registerForm.get('state').errors?.required">State is required</mat-hint> -->
+          </mat-form-field>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field class="full-width">
+            <input formControlName="telephone" matInput placeholder="Telephone">
+            <mat-hint style="color: red;" *ngIf="registerForm.get('telephone').touched && registerForm.get('telephone').errors?.required">Contact is required</mat-hint>
+
+          </mat-form-field>
+        </div>
+        <div class="col-sm-6">
+          <mat-form-field class="full-width">
+            <textarea formControlName="address" matInput placeholder="Address" value={{orgaddress}}></textarea>
+            <!-- <mat-hint style="color: red;" *ngIf="registerForm.get('address').touched && registerForm.get('address').errors?.required">Address is required</mat-hint> -->
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="saveForm()" mat-raised-button color="primary">Save</button>
+      <!-- <button (click)="sd()" mat-raised-button color="primary">sd</button>
+      <button (click)="rd()" mat-raised-button color="primary">dd</button>
+      <button (click)="dateC()" mat-raised-button color="primary">date</button>
+      <button (click)="dataAPI()" mat-raised-button color="primary">API</button>
+      <button (click)="createPost()" mat-raised-button color="primary">createPost</button> -->
+      
+    </mat-card-actions>
+  </mat-card>
+</form>

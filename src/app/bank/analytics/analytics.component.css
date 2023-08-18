@@ -1,0 +1,134 @@
+/*
+.container {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-rows: repeat(2, 100px);
+}
+.container > div > img {
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+} */
+mat-sidenav{
+    /* background-color:dodgerblue */
+  background:goldenrod;
+  
+  }
+  
+  mat-card{
+      margin-bottom: 30px;
+  }
+  
+  .navicon{
+  color: white;
+  }
+  .headContent{
+    padding-top:20px;
+  }
+  
+  mat-card-footer{
+    padding: 20px;
+  
+  }
+  .viewbtn{
+    background-color:goldenrod;
+    color: whitesmoke;
+    margin: 50px;
+  
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  
+  .example-container {
+    display: block;
+    overflow: auto;
+    min-height: 100vh;
+    height: auto;
+    margin: 0;
+    }
+  
+  .example-sidenav-content {
+    /* display: flex; */
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+      }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+  
+  /* .demo-panel {
+    width: 100%;
+    height: 90%;
+    margin: 10px 0px;
+  } */
+  .vl {
+    border-left: 1px solid gray;
+    height: 500px;
+  }
+  table {
+    width: 100%;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  td, th {
+    width: 25%;
+  }
+  th{
+    /* background: mediumslateblue; */
+    background:goldenrod;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+  }
+  .profileimg {
+  border-radius: 50%;
+  }
+  
+  .chartdiv{
+    width:100%;
+    height:250px;
+  }
+  .card{
+    background-color: whitesmoke;
+  }
+  .subnote{
+    font-size: 10px;
+    color: gray;
+  }
+  
+  .sideicon{
+    padding: 10px;
+    margin: 10px;
+    border:"1px solid";
+    border-radius: 10%;
+    background-color: grey;
+  }
+  .active{
+    background-color: cornflowerblue;
+    border-radius: 50%;
+  }
+  .center{
+      justify-content: center;
+  }
+  .cardicon1{
+     font-size: 200px;
+     color:rgb(135, 160, 92);
+  }
+  .cardicon2{
+    font-size: 200px;
+    color:yellowgreen;
+  }
+  .clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+  
