@@ -80,29 +80,17 @@ export class LeiIssueComponent implements OnInit {
                     if(!user[0]){
                     
                     }else{
-                      console.log('user');
+                                           console.log('user');
                       console.log(user);
 
-                     this.ipfs.getHashFromIPFS(user[0]).then((data:any)=>{
-                      this.ipfsConverted2 = JSON.parse(Buffer.from(data.value.buffer).toString());
+                      const URL = "https://"+user[0]+".ipfs.w3s.link/data_analytics_register_data.json"
+                      // https://bafybeibt3ws4fzuf7p4kawlogy2auvgy34ee6255sszj5npwnszws4f6ze.ipfs.w3s.link/data_analytics_register_data.json
+                        this.httpClient.get((URL)).subscribe((result:any) => {
+                           this.ipfsConverted2 = result;
                       console.log(this.ipfsConverted2 );
                        this.userinfo = user[0];
-                       this.loaderService.showLoader('bankLoader');
-                       console.log('this.userinfo')
-                       console.log(this.ipfsConverted2)
-                       let userWallet = this.ipfsConverted2.wallet;
-                       this.apiService.getDBAPI(userWallet).subscribe((result:any) => {
-                         console.log('lei');
-                        console.log(result);
-                        // this.totalProduct.push(result.leiIssue);
-                        this.dataSource = new MatTableDataSource(result);
-                        this.dataSource.sort = this.sort;
-                        this.dataSource.paginator = this.paginator;
-                        this.cd.detectChanges();
-                        this.loaderService.hideLoader('bankLoader');
-                      });
-                  
-                      })
+                    })
+ 
                     }
                   });
                   }
